@@ -60,7 +60,21 @@ OST's administrator credentials are:
 by default.
 
 ### Configuration
+Default configuration of kafka's elasticsearch sink connectors can be found in connect/config/. To change it change or
+add commands in connect/config/add_connector_config.sh and rebuild the docker image with docker file in connect/.
+Then substitute the image in projects docker-compose.yml. Information about how to configure kafka connect with 
+elasticsearch sink connector can be found under https://www.confluent.io/blog/kafka-elasticsearch-connector-tutorial/.
+There is also screen cap of the site in sites/ directory.
 
+For the elasticsearch to show the dates as dates and not long numbers index templates need to be made. For every kafka
+topic with a date there is a need of index template to change the mapping of the date field to "Date nanoseconds"
+format. To add a new index template open kibana in your browser, go to Management -> Index Management -> Index Templates
+and create new template. Make index pattern same as the topic in kafka and then in mappings add new field mapping with 
+name same as the field with date from kafka and with "Date nanoseconds" field type.
+
+For example for the OST answers to show date right template needs to look like this:
+![index template1.png](images%2Findex%20template1.png)
+![index template2.png](images%2Findex%20template2.png)
 
 ### Administration
 To stop demonstrator enter projects root directory in terminal and type:
