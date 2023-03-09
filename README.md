@@ -43,6 +43,8 @@ mkdir certificates && cd certificates && openssl req -newkey rsa:2048 -nodes -ke
 To create new self-signed certificate to be used by OST. To use different certificate replace two generated files with
 files named the same.
 
+Change default passwords for ELK stack in .env file.
+
 ### Running Demonstrator
 To run demonstrator enter projects root directory in terminal and type:
 ```shell
