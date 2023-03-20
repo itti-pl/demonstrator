@@ -162,16 +162,6 @@ services:
     depends_on:
       - ost_api
 
-  simulator:
-    image: bartosz012/event_simulator:latest
-    container_name: simulator
-    restart: unless-stopped
-    environment:
-      KAFKA.BOOTSTRAP_SERVERS: 'broker:9092'
-      KAFKA.GROUP_ID: simulator
-    ports:
-      - "127.0.0.1:8187:8187"
-
 volumes:
   setup:
   elasticsearch:
